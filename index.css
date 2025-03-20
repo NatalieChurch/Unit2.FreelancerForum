@@ -1,0 +1,8 @@
+div{
+    padding: 10%;
+    margin-right: auto; 
+    margin-left: auto;
+    border: solid black 3px;
+    background: rgb(197, 151, 151);
+    font-family: Arial, Helvetica, sans-serif;
+}
