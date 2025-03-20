@@ -11,6 +11,9 @@ const freelancers2 = [
     {Name: "Sue", Occupation: "Programmer", price: 70}
 ];
 
+let defaultAvgPrice = 50;
+const h2 = document.createElement("h2")
+
 // Way to render the freelancers on the page dynamically
 // function selects container to hold Fl data; after selecting container, dynamically build the html; append it to container
 function init(){
@@ -20,6 +23,10 @@ function init(){
     const h1 = document.createElement("h1")
     h1.innerHTML = "Freelancers"
     root.append(h1)
+
+   // const h2 = document.createElement("h2")
+   h2.innerHTML = `Average Price: ${defaultAvgPrice}`
+   root.append(h2)
 
     const FLContainer = document.createElement("div")
     FLContainer.id = "FLContainer"
@@ -51,9 +58,10 @@ const addFL = () => {
     const newFL = freelancers2[randomIndex]
     freelancers.push(newFL)
     renderFLContainer()
+    averagePrice(newFL)
 };
 
-const add = setInterval(addFL, 5000);
+const add = setInterval(addFL, 1000);
 
 setTimeout(()=>{
   clearInterval(add)
@@ -63,12 +71,28 @@ setTimeout(()=>{
 // calculate avg price of all shown freelancers
 // have a 3rd array of current FL on page
 
+// const currentFL = [
+    //{freelancers}
+//];
+// console.log(currentFL);
 
+function averagePrice(newFL){
+    const price = newFL.price
+    console.log(price)
 
+    defaultAvgPrice = (defaultAvgPrice + price)/2
 
+    h2.innerHTML = `Average Price: ${defaultAvgPrice}`
+    //const freelancersPrice = currentFL.filter((p) => p.currentFL === currentFL.price)
+    
+    //console.log(freelancersPrice)
 
+    //const totalPrice = freelancersPrice.reduce((total, pri) => total + pri.salary, 0)
+    
+    //return totalPrice/freelancersPrice.length
+}
 
-
+// console.log(averagePrice(currentFL))
 
 
 // const freelancers3 = [
